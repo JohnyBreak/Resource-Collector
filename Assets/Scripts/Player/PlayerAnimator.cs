@@ -6,14 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
 {
-    public Action<bool> ToggleCutColliderEvent;
-    public Action<bool> ToggleCutLayerEvent;
+    public Action<bool> ToggleToolColliderEvent;
+    public Action<bool, ResourceObject> ToggleExtractingLayerEvent;
 
     [SerializeField] private float _layerWaightSmoothTime = 0.2f;
 
     private Animator _anim;
     private int _moveHash = Animator.StringToHash("Move");
-    private int _isCuttingHash = Animator.StringToHash("IsCutting");
+    private int _isExtractingHash = Animator.StringToHash("IsExtracting");
     private Coroutine _layerWeightRoutine;
 
     private void Awake()
@@ -26,26 +26,26 @@ public class PlayerAnimator : MonoBehaviour
         _anim.SetFloat(_moveHash, value);
     }
 
-    public void StartCutting() 
+    public void StartExtracting(ResourceObject extractable) 
     {
-        ToggleCutLayerEvent?.Invoke(true);
+        ToggleExtractingLayerEvent?.Invoke(true, extractable);
         SetLayerWeight(1, 1);
     }
 
-    public void StopCutting()
+    public void StopExtracting()
     {
         SetLayerWeight(1, 0);
-        ToggleCutLayerEvent?.Invoke(false);
+        ToggleExtractingLayerEvent?.Invoke(false, null);
     }
 
-    public void EnableCutCollider() 
+    public void EnableToolCollider() 
     {
-        ToggleCutColliderEvent?.Invoke(true);
+        ToggleToolColliderEvent?.Invoke(true);
     }
 
-    public void DisableCutCollider()
+    public void DisableToolCollider()
     {
-        ToggleCutColliderEvent?.Invoke(false);
+        ToggleToolColliderEvent?.Invoke(false);
     }
 
     private void SetLayerWeight(int layer, float weight) 
@@ -74,7 +74,7 @@ public class PlayerAnimator : MonoBehaviour
             yield return null;
         }
         _anim.SetLayerWeight(layer, end);
-        _anim.SetBool(_isCuttingHash, (end == 1)? true : false);
+        _anim.SetBool(_isExtractingHash, (end == 1)? true : false);
     }
 
 }

@@ -12,13 +12,13 @@ public class Player : MonoBehaviour
         _playerAnim = GetComponent<PlayerAnimator>();
     }
 
-    public void StartCutting() 
+    public void StartExtract(ResourceObject extractable) 
     {
-        _playerAnim.StartCutting();
+        _playerAnim.StartExtracting(extractable);
     }
 
-    public void StopCutting()
+    public void StopExtract()
     {
-        _playerAnim.StopCutting();
+        _playerAnim.StopExtracting();
     }
 }
