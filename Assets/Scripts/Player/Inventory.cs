@@ -26,6 +26,13 @@ public class Inventory : MonoBehaviour
         _save.SaveData.Resources = _resources;
 
         _save.Save();
+
+        //ClearConsole();
+
+        //foreach (var item in _resources)
+        //{
+        //    Debug.Log($"{item.Key} {item.Value}");
+        //}
     }
 
     public void RemoveResource(BaseResource res, int amount = 1)

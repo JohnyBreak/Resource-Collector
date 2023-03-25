@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2197a036f0d30f94ea5c65b8d9236b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 56e6705eded8b7a43994e337ba32962a, type: 2}
+  Config: {fileID: 11400000, guid: 56e6705eded8b7a43994e337ba32962a, type: 2}
   _spawnPosition: {fileID: 7249348844287840121}
 --- !u!4 &7249348844287840121 stripped
 Transform:

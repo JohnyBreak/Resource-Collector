@@ -23,12 +23,12 @@ public class ToolController : MonoBehaviour
         ToggleTool(false);
     }
 
-    private void ToggleTool(bool value, ResourceObject extractable = null)
+    private void ToggleTool(bool value, ResourceObjectConfig type = null)
     {
         DisableTools();
-        if (extractable != null) 
+        if (type != null) 
         {
-            GetTool(extractable).gameObject.SetActive(value);
+            GetTool(type).gameObject.SetActive(value);
         }
     }
 
@@ -52,13 +52,11 @@ public class ToolController : MonoBehaviour
         _currentTool.ToggleCollider(value);
     }
 
-    private Tool GetTool(ResourceObject resourceObject) 
+    private Tool GetTool(ResourceObjectConfig resourceType) 
     {
-        var type = resourceObject.GetType();
-
         foreach (var item in _toolPairs)
         {
-            if (item.Resource.GetType() == resourceObject.GetType())
+            if (item.ResourceType == resourceType)
             {
                 _currentTool = item.Tool;
                 break;
@@ -73,5 +71,5 @@ public class ToolController : MonoBehaviour
 public class ToolResourcePair
 {
     public Tool Tool;
-    public ResourceObject Resource;
+    public ResourceObjectConfig ResourceType;
 }

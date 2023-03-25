@@ -12,9 +12,14 @@ public class SaveScriptable : ScriptableObject
     //    Load(); 
     //}
 
+    private void OnEnable()
+    {
+        Load();
+    }
+
     public void Load()
     {
-        Debug.LogError("load");
+        //Debug.LogError("load");
         SaveData = (SaveData)Load(Application.persistentDataPath + "/saves/Save.save");
     }
 

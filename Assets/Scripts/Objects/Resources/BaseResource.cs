@@ -3,6 +3,8 @@ using DG.Tweening;
 
 public abstract class BaseResource : MonoBehaviour, ICollectable
 {
+    public ResourceTypeConfig Type;
+
     [SerializeField] protected float _jumpPower = 2f;
     [SerializeField] protected int _jumpCount = 1;
     [SerializeField] protected float _jumpDuration = 0.5f;

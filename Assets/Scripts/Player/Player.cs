@@ -12,9 +12,9 @@ public class Player : MonoBehaviour
         _playerAnim = GetComponent<PlayerAnimator>();
     }
 
-    public void StartExtract(ResourceObject extractable) 
+    public void StartExtract(ResourceObjectConfig type) 
     {
-        _playerAnim.StartExtracting(extractable);
+        _playerAnim.StartExtracting(type);
     }
 
     public void StopExtract()

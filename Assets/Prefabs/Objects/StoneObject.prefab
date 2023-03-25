@@ -175,5 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4e2a811faa07547a561a3250412ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: e6e4858bcdd317a48a56750c3bf3e29a, type: 2}
+  Config: {fileID: 11400000, guid: e6e4858bcdd317a48a56750c3bf3e29a, type: 2}
   _spawnPosition: {fileID: 5905358112327680038}

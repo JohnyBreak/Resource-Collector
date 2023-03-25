@@ -31,7 +31,7 @@ public class ResourceObjectChecker : BaseChecker
         // start extract
         if (!_isExtracting) 
         {
-            _player.StartExtract(colls[0].GetComponent<ResourceObject>());
+            _player.StartExtract(colls[0].GetComponent<ResourceObject>().Config);
             _isExtracting = true;
         }
     }

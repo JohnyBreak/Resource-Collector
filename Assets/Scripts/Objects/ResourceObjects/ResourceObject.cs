@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class ResourceObject : MonoBehaviour, IExtractable
 {
-    [SerializeField] protected ResourceObjectConfig _config;
+    public ResourceObjectConfig Config;
     [SerializeField] protected Transform _spawnPosition;
 
     public virtual void Extract()
     {
-        Instantiate(_config.ResourcePrefab, _spawnPosition.position, Quaternion.identity)
+        Instantiate(Config.ResourcePrefab, _spawnPosition.position, Quaternion.identity)
                .Drop(_spawnPosition.position - Vector3.forward * 2);
     }
 }

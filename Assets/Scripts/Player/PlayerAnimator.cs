@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     public Action<bool> ToggleToolColliderEvent;
-    public Action<bool, ResourceObject> ToggleExtractingLayerEvent;
+    public Action<bool, ResourceObjectConfig> ToggleExtractingLayerEvent;
 
     [SerializeField] private float _layerWaightSmoothTime = 0.2f;
 
@@ -26,9 +26,9 @@ public class PlayerAnimator : MonoBehaviour
         _anim.SetFloat(_moveHash, value);
     }
 
-    public void StartExtracting(ResourceObject extractable) 
+    public void StartExtracting(ResourceObjectConfig type) 
     {
-        ToggleExtractingLayerEvent?.Invoke(true, extractable);
+        ToggleExtractingLayerEvent?.Invoke(true, type);
         SetLayerWeight(1, 1);
     }
 
