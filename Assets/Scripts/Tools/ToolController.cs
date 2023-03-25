@@ -3,7 +3,9 @@ using UnityEngine;
 using System.Linq;
 public class ToolController : MonoBehaviour
 {
-    [SerializeField] private List<ToolResourcePair> _toolPairs;
+    [SerializeField] private List<Tool> _tools;
+    //[SerializeField] private List<ToolResourcePair> _toolPairs;
+    [SerializeField] private ToolResourcesConfig _config;
 
     private PlayerAnimator _playerAnim;
 
@@ -14,8 +16,6 @@ public class ToolController : MonoBehaviour
         _playerAnim = GetComponent<PlayerAnimator>();
 
         DisableTools();
-
-        _currentTool = _toolPairs[0].Tool;
 
         _playerAnim.ToggleExtractingLayerEvent += ToggleTool;
         _playerAnim.ToggleToolColliderEvent += ToggleCurrentCollider;// _currentTool.ToggleCollider;
@@ -41,9 +41,9 @@ public class ToolController : MonoBehaviour
 
     private void DisableTools() 
     {
-        foreach (var item in _toolPairs)
+        foreach (var item in _tools)
         {
-            item.Tool.gameObject.SetActive(false);
+            item.gameObject.SetActive(false);
         }
     }
 
@@ -54,22 +54,31 @@ public class ToolController : MonoBehaviour
 
     private Tool GetTool(ResourceObjectConfig resourceType) 
     {
-        foreach (var item in _toolPairs)
+        foreach (var item in _config.ToolPairs)
         {
-            if (item.ResourceType == resourceType)
+            if (item.ResourceType == resourceType) 
             {
-                _currentTool = item.Tool;
+                _currentTool = _tools.Find(t => t.Type == item.Tool);
                 break;
             }
         }
+
+        //foreach (var item in _tools)
+        //{
+        //    if (item.Type == resourceType)
+        //    {
+        //        _currentTool = item.Tool;
+        //        break;
+        //    }
+        //}
 
         return _currentTool;
     }
 }
 
-[System.Serializable]
-public class ToolResourcePair
-{
-    public Tool Tool;
-    public ResourceObjectConfig ResourceType;
-}
+//[System.Serializable]
+//public class ToolResourcePair
+//{
+//    public Tool Tool;
+//    public ResourceObjectConfig ResourceType;
+//}

@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Tool : MonoBehaviour, IExtracting
 {
+    public ToolConfig Type;
+
     [SerializeField] private LayerMask _mask;
     private Collider _collider;
 

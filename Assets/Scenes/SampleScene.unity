@@ -400,11 +400,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b33f66c29da93f42a33f193b93c8bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toolPairs:
-  - Tool: {fileID: 990010411}
-    ResourceType: {fileID: 11400000, guid: 56e6705eded8b7a43994e337ba32962a, type: 2}
-  - Tool: {fileID: 610556995}
-    ResourceType: {fileID: 11400000, guid: e6e4858bcdd317a48a56750c3bf3e29a, type: 2}
+  _tools:
+  - {fileID: 990010411}
+  - {fileID: 1372958215}
+  - {fileID: 610556995}
+  _config: {fileID: 11400000, guid: 940ab00275e9a5e4091cbde24b0990b6, type: 2}
 --- !u!114 &179205434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,6 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e56a13d94137be4ea0daa585dbdb404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Type: {fileID: 11400000, guid: 93ec58e13e27776438759d7f60c02685, type: 2}
   _mask:
     serializedVersion: 2
     m_Bits: 256
@@ -1190,6 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e56a13d94137be4ea0daa585dbdb404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Type: {fileID: 11400000, guid: 32529cc3f533f2247ba738365a45441c, type: 2}
   _mask:
     serializedVersion: 2
     m_Bits: 256
@@ -1222,51 +1224,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.28226465, y: 0.3111057, z: 0.04967545}
   m_Center: {x: -0.066913106, y: 0.31581914, z: -0.000004197377}
---- !u!1 &1211223901
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1211223903}
-  - component: {fileID: 1211223902}
-  m_Layer: 0
-  m_Name: SaveLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1211223902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211223901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20dd3c0acb3c86d4d97d5ac108312c56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _save: {fileID: 11400000, guid: fd847603530aca4459f80bcbb66d84dd, type: 2}
---- !u!4 &1211223903
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211223901}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0537503, y: 2.4229121, z: 1.829668}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1372958212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1358,6 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e56a13d94137be4ea0daa585dbdb404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Type: {fileID: 11400000, guid: eb6d5dd67cd018d42af4b0036a79c1cc, type: 2}
   _mask:
     serializedVersion: 2
     m_Bits: 256
