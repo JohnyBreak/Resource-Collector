@@ -23,6 +23,7 @@ public class SaveScriptable : ScriptableObject
         Save(SaveData);
     }
 
+    #region Work With File
     private bool Save(object data, string name = "Save")
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -63,4 +64,5 @@ public class SaveScriptable : ScriptableObject
             return null;
         }
     }
+    #endregion
 }
