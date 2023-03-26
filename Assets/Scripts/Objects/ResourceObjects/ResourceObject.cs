@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 public abstract class ResourceObject : MonoBehaviour, IExtractable
 {
     public ResourceObjectConfig Config;
+    public Action RecoverEvent;
+    public Action DevastateEvent;
+
     [SerializeField] protected ResourceSpawner _spawner;
     [SerializeField] protected Transform _spawnPosition;
     [SerializeField] protected LandArea _landArea;
@@ -41,8 +45,14 @@ public abstract class ResourceObject : MonoBehaviour, IExtractable
     protected IEnumerator RecoveryRoutine() 
     {
         _collider.enabled = false;
+        //devastate
+
+        DevastateEvent?.Invoke();
 
         yield return new WaitForSeconds(Config.RecoveryTime);
+        //recover
+        
+        RecoverEvent?.Invoke();
 
         _collider.enabled = true;
         _hitCount = 0;

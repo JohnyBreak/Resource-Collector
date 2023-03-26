@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 502937696420285369}
   - component: {fileID: 8935866223780989221}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: AnimatedObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +90,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3744169357184821602, guid: 5fd790c5549b38c4faa2c82a77c056e0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d5a53157aeab2b649b8f9365c9966414, type: 2}
     - target: {fileID: 8412417563829896682, guid: 5fd790c5549b38c4faa2c82a77c056e0, type: 3}
       propertyPath: _radius
       value: 2

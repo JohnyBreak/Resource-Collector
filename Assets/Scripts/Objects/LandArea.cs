@@ -12,7 +12,6 @@ public class LandArea : MonoBehaviour
     {
         var point = Random.insideUnitCircle* _radius;
         var pos = transform.position + new Vector3(point.x, transform.position.y, point.y);
-        Debug.Log($"{transform.position} / {pos}");
         return pos;
     }
 

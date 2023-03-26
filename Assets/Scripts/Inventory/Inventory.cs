@@ -25,12 +25,12 @@ public class Inventory : MonoBehaviour
 
         _save.Save();
 
-        ClearConsole();
+        //ClearConsole();
 
-        foreach (var item in _inventory.ResourceByType)
-        {
-            Debug.Log($"{item.Key} {item.Value}");
-        }
+        //foreach (var item in _inventory.ResourceByType)
+        //{
+        //    Debug.Log($"{item.Key} {item.Value}");
+        //}
     }
 
     public void RemoveResource(BaseResource res, int amount = 1)
@@ -38,13 +38,13 @@ public class Inventory : MonoBehaviour
         // todo
     }
 
-    private void ClearConsole()
-    {
-        Assembly assembly = Assembly.GetAssembly(typeof(SceneView));
+    //private void ClearConsole()
+    //{
+    //    Assembly assembly = Assembly.GetAssembly(typeof(SceneView));
 
-        Type type = assembly.GetType("UnityEditor.LogEntries");
-        MethodInfo method = type.GetMethod("Clear");
-        method.Invoke(new object(), null);
-    }
+    //    Type type = assembly.GetType("UnityEditor.LogEntries");
+    //    MethodInfo method = type.GetMethod("Clear");
+    //    method.Invoke(new object(), null);
+    //}
 
 }
