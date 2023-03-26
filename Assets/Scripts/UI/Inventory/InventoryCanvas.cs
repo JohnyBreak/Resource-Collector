@@ -11,6 +11,9 @@ public class InventoryCanvas : MonoBehaviour
 
     private void Awake()
     {
+        _inventory.InventoryChangedEvent += OnInventoryChanged;
+        _inventory.InitCanvasEvent += Init;
+
         _resourceItems = new Dictionary<ResourceTypeConfig, InventoryItem>();
 
         foreach (var res in _inventory.ResourceList.Resources)
@@ -21,17 +24,8 @@ public class InventoryCanvas : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-
-        _inventory.InventoryChangedEvent += OnInventoryChanged;
-        _inventory.InitCanvasEvent += Init;
-    }
-
     private void Init()
     {
-        Debug.LogError("Init");
-
         foreach (var type in _inventory.ResourceByType)
         {
             var res = _inventory.ResourceList.Resources.Find(t => t.GetType() == type.Key);
