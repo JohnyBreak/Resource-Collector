@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 008cb3e1bc4dbd44483cdd34acf775bb, type: 3}
-  m_Name: StoneType
+  m_Script: {fileID: 11500000, guid: af81512675dae1046a69e59140090203, type: 3}
+  m_Name: ResourceListConfig
   m_EditorClassIdentifier: 
+  Resources:
+  - {fileID: 11400000, guid: 53c9dc017c2c6e647999527798dd96a7, type: 2}
+  - {fileID: 11400000, guid: e1f19167e9276d64190f3deea7f83bac, type: 2}

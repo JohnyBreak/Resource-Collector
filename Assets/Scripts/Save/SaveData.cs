@@ -4,12 +4,10 @@ using System.Collections.Generic;
 [Serializable]
 public class SaveData
 {
-    public int MoneyAmount;
-    public int BlocksAmount;
-    public Dictionary<Type, int> Resources;
+    public Dictionary<Type, int> ResourcesByType;
 
     public SaveData()
     {
-        Resources = new Dictionary<Type, int>();
+        ResourcesByType = new Dictionary<Type, int>();
     }
 }

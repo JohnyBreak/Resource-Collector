@@ -7,11 +7,6 @@ public class SaveScriptable : ScriptableObject
 {
     [HideInInspector] public SaveData SaveData;
 
-    //private void Awake()
-    //{
-    //    Load(); 
-    //}
-
     private void OnEnable()
     {
         Load();
@@ -69,5 +64,37 @@ public class SaveScriptable : ScriptableObject
             return null;
         }
     }
+
+    // for test
+
+    //public static bool Save(object data, string name = "Save")
+    //{
+    //    string path = Application.persistentDataPath + "/saves/" + name + ".save";
+    //    string jsonString = JsonUtility.ToJson(data);
+
+    //    File.WriteAllText(path, jsonString);
+    //    return true;
+    //}
+    //public static object Load(string path)
+    //{
+    //    if (!File.Exists(path))
+    //    {
+    //        //Debug.LogError("Creating new save");
+    //        Save(new SaveData(), "Save");
+    //    }
+
+    //    //string path = Application.persistentDataPath + "/saves/" + name + ".save";
+    //    if (File.Exists(path))
+    //    {
+    //        // Read the entire file and save its contents.
+    //        string fileContents = File.ReadAllText(path);
+
+    //        // Deserialize the JSON data 
+    //        //  into a pattern matching the GameData class.
+    //        return JsonUtility.FromJson<SaveData>(fileContents);
+//}
+
+//        return null;
+//    }
     #endregion
 }
