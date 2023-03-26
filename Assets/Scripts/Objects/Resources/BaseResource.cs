@@ -3,15 +3,20 @@ using DG.Tweening;
 
 public abstract class BaseResource : MonoBehaviour, ICollectable
 {
-    public ResourceTypeConfig Type;
+    public ResourceTypeConfig Config;
+    protected Collider _collider;
 
-    [SerializeField] protected float _jumpPower = 2f;
-    [SerializeField] protected int _jumpCount = 1;
-    [SerializeField] protected float _jumpDuration = 0.5f;
+    private void Awake()
+    {
+        _collider = GetComponent<Collider>();
+    }
 
     public virtual void Drop(Vector3 endPos)
     {
-        transform.DOJump(endPos, _jumpPower, _jumpCount, _jumpDuration).SetEase(Ease.OutQuad);
+        _collider.enabled = false;
+        transform.DOJump(endPos, Config.JumpPower, Config.JumpCount, Config.JumpDuration)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(()=> _collider.enabled = true);
     }
 
     public abstract void Collect();

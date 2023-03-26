@@ -50,13 +50,13 @@ public class InventoryCanvas : MonoBehaviour
         //    _resourceItems.Add(res.Type, item);
         //}
 
-        if(_resourceItems[res.Type].gameObject.activeInHierarchy == false) 
+        if(_resourceItems[res.Config].gameObject.activeInHierarchy == false) 
         {
-            _resourceItems[res.Type].Init(res.Type.Icon, amount);
-            _resourceItems[res.Type].gameObject.SetActive(true);
+            _resourceItems[res.Config].Init(res.Config.Icon, amount);
+            _resourceItems[res.Config].gameObject.SetActive(true);
             return;
         }
-        _resourceItems[res.Type].SetAmount(amount);
+        _resourceItems[res.Config].SetAmount(amount);
     }
 
     private void OnDestroy()

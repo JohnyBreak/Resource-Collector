@@ -16,15 +16,15 @@ public class InventoryConfig : ScriptableObject
 
     public void AddResource(BaseResource res, int amount = 1) 
     {
-        if (ResourceByType.ContainsKey(res.Type.GetType()) == false)
+        if (ResourceByType.ContainsKey(res.Config.GetType()) == false)
         {
 
-            ResourceByType.Add(res.Type.GetType(), 0);
+            ResourceByType.Add(res.Config.GetType(), 0);
         }
 
-        ResourceByType[res.Type.GetType()] += amount;
+        ResourceByType[res.Config.GetType()] += amount;
 
-        InventoryChangedEvent?.Invoke(res, ResourceByType[res.Type.GetType()]);
+        InventoryChangedEvent?.Invoke(res, ResourceByType[res.Config.GetType()]);
     }
 
     public void RemoveResource(BaseResource res, int amount = 1)

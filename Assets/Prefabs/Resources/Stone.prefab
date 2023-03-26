@@ -166,7 +166,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e2428c10128754aae2d9ced53f4c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: 53c9dc017c2c6e647999527798dd96a7, type: 2}
-  _jumpPower: 2
-  _jumpCount: 1
-  _jumpDuration: 0.7
+  Config: {fileID: 11400000, guid: 53c9dc017c2c6e647999527798dd96a7, type: 2}

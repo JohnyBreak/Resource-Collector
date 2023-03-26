@@ -4,4 +4,7 @@ using UnityEngine;
 public class ResourceObjectConfig : ScriptableObject
 {
     public BaseResource ResourcePrefab;
+    public float RecoveryTime = 10f;
+    public int ResourcePerHitCount = 1;
+    public int HitCountBeforeDevastation = 5;
 }

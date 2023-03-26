@@ -90,6 +90,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8412417563829896682, guid: 5fd790c5549b38c4faa2c82a77c056e0, type: 3}
+      propertyPath: _radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8720384962278180808, guid: 5fd790c5549b38c4faa2c82a77c056e0, type: 3}
       propertyPath: m_Size.y
       value: 2.075482
@@ -153,6 +157,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4663060237517199475, guid: 5fd790c5549b38c4faa2c82a77c056e0, type: 3}
   m_PrefabInstance: {fileID: 1243714219303852117}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7348861160544001471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8412417563829896682, guid: 5fd790c5549b38c4faa2c82a77c056e0, type: 3}
+  m_PrefabInstance: {fileID: 1243714219303852117}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92141ccf016b64a41883abe8dfd937a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7514124679254253502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8720384962110900203, guid: 5fd790c5549b38c4faa2c82a77c056e0, type: 3}
@@ -176,4 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: e6e4858bcdd317a48a56750c3bf3e29a, type: 2}
+  _spawner: {fileID: 11400000, guid: fea5b3de460dbe8408fded22a9abeae0, type: 2}
   _spawnPosition: {fileID: 5905358112327680038}
+  _landArea: {fileID: 7348861160544001471}
