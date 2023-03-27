@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1640fd2ab88c28040957f39adbe170fd, type: 3}
-  m_Name: StoneObjectConfig
+  m_Script: {fileID: 11500000, guid: 6ee058092aef8bc409888323a9e1b404, type: 3}
+  m_Name: CrystallTypeConfig
   m_EditorClassIdentifier: 
-  ResourcePrefab: {fileID: 6178954280967210716, guid: 4aa3537b7fce82044986aac7271a83d0, type: 3}
-  RecoveryTime: 10
-  ResourcePerHitCount: 2
-  HitCountBeforeDevastation: 5
+  Icon: {fileID: 21300000, guid: c9ee64409d8692b4c816190d4c421c65, type: 3}
+  JumpPower: 2
+  JumpCount: 1
+  JumpDuration: 0.5

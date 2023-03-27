@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class ResourceObject : MonoBehaviour, IExtractable
 {
     public ResourceObjectConfig Config;
+    public Action HitEvent;
     public Action RecoverEvent;
     public Action DevastateEvent;
 
@@ -25,6 +26,8 @@ public abstract class ResourceObject : MonoBehaviour, IExtractable
     public virtual void Extract()
     {
         _spawner.SpawnResource(Config.ResourcePrefab, _spawnPosition.position, Config.ResourcePerHitCount, DropResourceCallback);
+
+        HitEvent?.Invoke();
 
         _hitCount++;
 

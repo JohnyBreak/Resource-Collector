@@ -17,3 +17,5 @@ MonoBehaviour:
     ResourceType: {fileID: 11400000, guid: 56e6705eded8b7a43994e337ba32962a, type: 2}
   - Tool: {fileID: 11400000, guid: 93ec58e13e27776438759d7f60c02685, type: 2}
     ResourceType: {fileID: 11400000, guid: e6e4858bcdd317a48a56750c3bf3e29a, type: 2}
+  - Tool: {fileID: 11400000, guid: eb6d5dd67cd018d42af4b0036a79c1cc, type: 2}
+    ResourceType: {fileID: 11400000, guid: bce43760adba32645a1f44d1adcf327b, type: 2}
