@@ -19,5 +19,8 @@ public abstract class BaseResource : MonoBehaviour, ICollectable
             .OnComplete(()=> _collider.enabled = true);
     }
 
-    public abstract void Collect();
+    public virtual void Collect() 
+    {
+        Config.Pool.DisableObject(this);
+    }
 }

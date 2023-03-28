@@ -2,53 +2,64 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+[CreateAssetMenu(fileName = "ObjectPool", menuName = "ObjectPool")]
+public class ObjectPool : ScriptableObject
 {
-    [SerializeField] private GameObject _prefab;
-    [SerializeField] private List<GameObject> _pooledObjects;
-    [SerializeField] private int _countToPreLoad = 30;
 
-    private List<Vector3> _lastPositions = new List<Vector3>();
-    public List<GameObject> PooledObjects => _pooledObjects;
-    public List<Vector3> LastPositions => _lastPositions;
+    //[SerializeField] 
+    private List<BaseResource> _pooledObjects;
+
+    public List<BaseResource> PooledObjects => _pooledObjects;
 
     private void Awake()
     {
-        _pooledObjects = new List<GameObject>();
-        for (int i = 0; i < _countToPreLoad; i++)
-        {
-            CreateObject();
-        }
+
+        //for (int i = 0; i < _countToPreLoad; i++)
+        //{
+        //    CreateObject();
+        //}
     }
 
-    public GameObject GetPooledObject() 
+    private void OnEnable()
+    {
+        if (_pooledObjects != null) _pooledObjects.Clear();
+        _pooledObjects = new List<BaseResource>();
+    }
+
+    public BaseResource GetPooledObject(BaseResource res, bool active = false)
     {
         for (int i = 0; i < _pooledObjects.Count; i++)
         {
-            if (!_pooledObjects[i].activeInHierarchy) 
+            if (!_pooledObjects[i].gameObject.activeInHierarchy)
             {
-                _pooledObjects[i].transform.SetParent(null);
-                return _pooledObjects[i];
+               
+                if (_pooledObjects[i].Config == res.Config)
+                {
+                    _pooledObjects[i].transform.SetParent(null);
+                    _pooledObjects[i].gameObject.SetActive(active);
+                    return _pooledObjects[i];
+                }
             }
         }
 
-        CreateObject();
-        GameObject obj = _pooledObjects[_pooledObjects.Count-1];
+        CreateObject(res);
+        BaseResource obj = _pooledObjects[_pooledObjects.Count - 1];
         obj.transform.SetParent(null);
+        obj.gameObject.SetActive(active);
+
         return obj;
     }
 
-    private void CreateObject() 
+    private void CreateObject(BaseResource res)
     {
-        GameObject obj = Instantiate(_prefab, transform);
-        obj.SetActive(false);
-        _lastPositions.Add(obj.transform.position);
+        BaseResource obj = Instantiate(res);//, transform);
+        obj.gameObject.SetActive(false);
         _pooledObjects.Add(obj);
     }
 
-    public void DisableObject(GameObject obj) 
+    public void DisableObject(BaseResource res)
     {
-        obj.transform.SetParent(transform);
-        obj.SetActive(false);
+        //obj.transform.SetParent(transform);
+        res.gameObject.SetActive(false);
     }
 }

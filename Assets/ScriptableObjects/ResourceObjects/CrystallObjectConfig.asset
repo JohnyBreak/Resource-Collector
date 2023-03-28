@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1640fd2ab88c28040957f39adbe170fd, type: 3}
   m_Name: CrystallObjectConfig
   m_EditorClassIdentifier: 
-  ResourcePrefab: {fileID: 6178954280967210716, guid: 3cd167de3cb634749a0a3e5e241bb079, type: 3}
+  ResourcePrefab: {fileID: 3178775860530015408, guid: 3cd167de3cb634749a0a3e5e241bb079, type: 3}
   RecoveryTime: 10
   ResourcePerHitCount: 1
   HitCountBeforeDevastation: 5

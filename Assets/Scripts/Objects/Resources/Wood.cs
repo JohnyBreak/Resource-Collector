@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Wood : BaseResource
 {
-    public override void Collect()
-    {
-        Destroy(gameObject);
-    }
+    //public override void Collect()
+    //{
+    //    Destroy(gameObject);
+    //}
 }

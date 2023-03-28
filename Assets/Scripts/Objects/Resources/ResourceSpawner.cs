@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ResourceSpawner", menuName = "Resources/ResourceSpawner")]
 public class ResourceSpawner : ScriptableObject
 {
+    [SerializeField] private ObjectPool _pool;
+
     private Queue<ResourceSpawnQueueElement> _resQueue = new Queue<ResourceSpawnQueueElement>();
 
     public void SpawnResource(BaseResource resourse, Vector3 spawnPosition, int count = 1, Action<BaseResource> action = null) 
@@ -18,7 +19,8 @@ public class ResourceSpawner : ScriptableObject
             for (int i = 0; i < queueElement.Count; i++)
             {
 
-                var res = Instantiate(queueElement.Resource, queueElement.SpawnPosition, Quaternion.identity);
+                var res = _pool.GetPooledObject(queueElement.Resource, true);//Instantiate(queueElement.Resource, queueElement.SpawnPosition, Quaternion.identity);
+                res.transform.position = queueElement.SpawnPosition;
 
                 if (queueElement.Callback != null) queueElement.Callback.Invoke(res);
             }

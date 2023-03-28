@@ -43,6 +43,7 @@ public class ToolController : MonoBehaviour
     {
         foreach (var item in _tools)
         {
+            item.ToggleCollider(false);
             item.gameObject.SetActive(false);
         }
     }
