@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class ResourceObject : MonoBehaviour, IExtractable
 {
@@ -17,9 +18,11 @@ public abstract class ResourceObject : MonoBehaviour, IExtractable
     protected int _hitCount = 0;
 
     protected Collider _collider;
+    protected NavMeshObstacle _navMeshObstacle;
 
     private void Awake()
     {
+        _navMeshObstacle = GetComponent<NavMeshObstacle>();
         _collider = GetComponent<Collider>();
     }
 
@@ -47,6 +50,7 @@ public abstract class ResourceObject : MonoBehaviour, IExtractable
 
     protected IEnumerator RecoveryRoutine() 
     {
+        _navMeshObstacle.enabled = false;
         _collider.enabled = false;
         //devastate
 
@@ -57,6 +61,7 @@ public abstract class ResourceObject : MonoBehaviour, IExtractable
         
         RecoverEvent?.Invoke();
 
+        _navMeshObstacle.enabled = true;
         _collider.enabled = true;
         _hitCount = 0;
     }

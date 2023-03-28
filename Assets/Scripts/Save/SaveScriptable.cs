@@ -1,6 +1,10 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Reflection;
+using System;
+using System.Collections.Generic;
+
 
 [CreateAssetMenu(fileName = "SaveScriptable", menuName = "Save/SaveScriptable")]
 public class SaveScriptable : ScriptableObject
@@ -92,9 +96,27 @@ public class SaveScriptable : ScriptableObject
     //        // Deserialize the JSON data 
     //        //  into a pattern matching the GameData class.
     //        return JsonUtility.FromJson<SaveData>(fileContents);
-//}
+    //    }
 
-//        return null;
-//    }
+    //    return null;
+    //}
     #endregion
+}
+
+[Serializable]
+public class BinarySerializableData
+{
+    public Dictionary<string, object> properties;
+
+    public BinarySerializableData(ScriptableObject obj)
+    {
+        properties = new Dictionary<string, object>();
+
+        Type T = obj.GetType();
+        foreach (FieldInfo field in T.GetFields())
+        {
+            properties[field.Name] = field.GetValue(obj);
+        }
+    }
+
 }

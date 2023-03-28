@@ -13,6 +13,7 @@ public class InventoryConfig : ScriptableObject
 
     public ResourceListConfig ResourceList;
     public Dictionary<Type, int> ResourceByType;
+    //public Dictionary<ResourceTypeConfig, int> Resources;
 
     public void AddResource(BaseResource res, int amount = 1) 
     {
@@ -20,9 +21,11 @@ public class InventoryConfig : ScriptableObject
         {
 
             ResourceByType.Add(res.Config.GetType(), 0);
+            //Resources.Add(res.Config, 0);
         }
 
         ResourceByType[res.Config.GetType()] += amount;
+        //Resources[res.Config] += amount;
 
         InventoryChangedEvent?.Invoke(res, ResourceByType[res.Config.GetType()]);
     }

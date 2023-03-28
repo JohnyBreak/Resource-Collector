@@ -13,7 +13,12 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         _inventory.ResourceByType = _save.SaveData.ResourcesByType;
+        //_inventory.Resources = _save.SaveData.Resources;
 
+        //foreach (var item in _inventory.Resources)
+        //{
+        //    Debug.Log($"{item.Key} {item.Value}");
+        //}
         _inventory.InitCanvas();
     }
 
@@ -22,6 +27,8 @@ public class Inventory : MonoBehaviour
         _inventory.AddResource(res, amount);
 
         _save.SaveData.ResourcesByType = _inventory.ResourceByType;
+
+        //_save.SaveData.Resources = _inventory.Resources;
 
         _save.Save();
 

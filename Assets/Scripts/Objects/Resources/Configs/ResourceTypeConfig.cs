@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public abstract class ResourceTypeConfig : ScriptableObject
+[CreateAssetMenu(fileName = "ResourceTypeConfig", menuName = "Resources/ResourceTypeConfig")]
+public class ResourceTypeConfig : ScriptableObject
 {
     public Sprite Icon;
 
