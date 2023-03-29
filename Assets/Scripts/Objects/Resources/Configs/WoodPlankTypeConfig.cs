@@ -1,18 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodPlankTypeConfig : MonoBehaviour
+[CreateAssetMenu(fileName = "WoodPlankTypeConfig", menuName = "ScriptableObjects/Resources/WoodPlankTypeConfig")]
+public class WoodPlankTypeConfig : ResourceTypeConfig
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

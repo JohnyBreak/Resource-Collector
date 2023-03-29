@@ -11,15 +11,6 @@ public class ObjectPool : ScriptableObject
 
     public List<BaseResource> PooledObjects => _pooledObjects;
 
-    private void Awake()
-    {
-
-        //for (int i = 0; i < _countToPreLoad; i++)
-        //{
-        //    CreateObject();
-        //}
-    }
-
     private void OnEnable()
     {
         if (_pooledObjects != null) _pooledObjects.Clear();
@@ -52,14 +43,13 @@ public class ObjectPool : ScriptableObject
 
     private void CreateObject(BaseResource res)
     {
-        BaseResource obj = Instantiate(res);//, transform);
+        BaseResource obj = Instantiate(res);
         obj.gameObject.SetActive(false);
         _pooledObjects.Add(obj);
     }
 
     public void DisableObject(BaseResource res)
     {
-        //obj.transform.SetParent(transform);
         res.gameObject.SetActive(false);
     }
 }
