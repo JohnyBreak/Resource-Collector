@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1640fd2ab88c28040957f39adbe170fd, type: 3}
   m_Name: WoodObjectConfig
   m_EditorClassIdentifier: 
-  ResourcePrefab: {fileID: 8102124935122758152, guid: d0d98073f439fee41ac10daa7151677a, type: 3}
+  ResourcePrefab: {fileID: -8904402775800405952, guid: d0d98073f439fee41ac10daa7151677a, type: 3}
   RecoveryTime: 10
   ResourcePerHitCount: 3
   HitCountBeforeDevastation: 5

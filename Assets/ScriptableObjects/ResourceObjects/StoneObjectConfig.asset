@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1640fd2ab88c28040957f39adbe170fd, type: 3}
   m_Name: StoneObjectConfig
   m_EditorClassIdentifier: 
-  ResourcePrefab: {fileID: 6178954280967210716, guid: 4aa3537b7fce82044986aac7271a83d0, type: 3}
+  ResourcePrefab: {fileID: 1095690716102957968, guid: 4aa3537b7fce82044986aac7271a83d0, type: 3}
   RecoveryTime: 10
   ResourcePerHitCount: 2
   HitCountBeforeDevastation: 5

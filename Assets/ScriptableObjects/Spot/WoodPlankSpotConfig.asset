@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3079e46176c734a89c6b72a2d4f542, type: 3}
   m_Name: WoodPlankSpotConfig
   m_EditorClassIdentifier: 
-  ResourceIn: {fileID: 8102124935122758152, guid: d0d98073f439fee41ac10daa7151677a, type: 3}
+  ResourceIn: {fileID: -8904402775800405952, guid: d0d98073f439fee41ac10daa7151677a, type: 3}
   InCount: 3
   ResourceOut: {fileID: 1475621991360769601, guid: 2bc9961a047b72f4d9b47e62b5f15cb3, type: 3}
   OutCount: 1
-  FlyInInterval: 0.2
   RecyclingTime: 3
