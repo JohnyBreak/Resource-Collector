@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ResourceListConfig
   m_EditorClassIdentifier: 
   Resources:
-  - {fileID: 11400000, guid: c75d8ef242959404a8488fc82dc448d2, type: 2}
-  - {fileID: 11400000, guid: 53c9dc017c2c6e647999527798dd96a7, type: 2}
-  - {fileID: 11400000, guid: e1f19167e9276d64190f3deea7f83bac, type: 2}
-  - {fileID: 11400000, guid: abddcca46288cae4f889cb74b1dde477, type: 2}
+  - {fileID: 11400000, guid: 0a22fdd4d3c51104589eb5d5855784fd, type: 2}
+  - {fileID: 11400000, guid: 857bd074da6923e49b95d81067ccaba8, type: 2}
+  - {fileID: 11400000, guid: 888cb3f4542356c4abc62305a8524df0, type: 2}
+  - {fileID: 11400000, guid: a135f319401424348a0549eb50b9d9bb, type: 2}
+  - {fileID: 11400000, guid: 2ea1e2f5d24e8fd4db9e997a774273eb, type: 2}

@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        _inventory.ResourceByType = _save.SaveData.ResourcesByType;
+        _inventory.ResourceByIndex = _save.SaveData.ResourcesByType;
         //_inventory.Resources = _save.SaveData.Resources;
 
         //foreach (var item in _inventory.Resources)
@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
     {
         _inventory.AddResource(res, amount);
 
-        _save.SaveData.ResourcesByType = _inventory.ResourceByType;
+        _save.SaveData.ResourcesByType = _inventory.ResourceByIndex;
 
         //_save.SaveData.Resources = _inventory.Resources;
 
@@ -40,9 +40,17 @@ public class Inventory : MonoBehaviour
         //}
     }
 
-    public void RemoveResource(BaseResource res, int amount = 1)
+    public bool CheckResourceAvailability(BaseResource res)
     {
-        // todo
+        return _inventory.CheckResourceAvailability(res);
+    }
+
+    public List<BaseResource> GetAllResourcesByType(BaseResource res)
+    {
+        List<BaseResource> tempList = _inventory.GetAllResourcesByType(res);
+        _save.SaveData.ResourcesByType = _inventory.ResourceByIndex;
+        _save.Save();
+        return tempList;
     }
 
     //private void ClearConsole()

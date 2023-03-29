@@ -13,33 +13,36 @@ public class InventoryConfig : ScriptableObject
 
     [SerializeField] private ResourceSpawner _spawner;
     public ResourceListConfig ResourceList;
-    public Dictionary<Type, int> ResourceByType;
+
+    public Dictionary<int, int> ResourceByIndex;
     //public Dictionary<ResourceTypeConfig, int> Resources;
 
     public void AddResource(BaseResource res, int amount = 1) 
     {
-        if (ResourceByType.ContainsKey(res.Config.GetType()) == false)
+        if (ResourceByIndex.ContainsKey(GetResourceIndex(res)) == false)
         {
 
-            ResourceByType.Add(res.Config.GetType(), 0);
+            ResourceByIndex.Add(GetResourceIndex(res), 0);
             //Resources.Add(res.Config, 0);
         }
 
-        ResourceByType[res.Config.GetType()] += amount;
+        ResourceByIndex[GetResourceIndex(res)] += amount;
         //Resources[res.Config] += amount;
 
-        InventoryChangedEvent?.Invoke(res, ResourceByType[res.Config.GetType()]);
+        InventoryChangedEvent?.Invoke(res, ResourceByIndex[GetResourceIndex(res)]);
     }
 
-    public void RemoveResource(BaseResource res, int amount = 1)
+    private void RemoveResource(BaseResource res, int amount = 1)
     {
-        //todo
+        ResourceByIndex[GetResourceIndex(res)] -= amount;
+        Debug.Log(ResourceByIndex[GetResourceIndex(res)]);
+        InventoryChangedEvent?.Invoke(res, ResourceByIndex[GetResourceIndex(res)]);
     }
 
     public List<BaseResource> GetAllResourcesByType(BaseResource res)
     {
         List<BaseResource> tempList = new List<BaseResource>();
-        int amount = ResourceByType[res.Config.GetType()];
+        int amount = ResourceByIndex[GetResourceIndex(res)];
 
         for (int i = 0; i < amount; i++)
         {
@@ -47,18 +50,29 @@ public class InventoryConfig : ScriptableObject
 
             tempList.Add(item);
         }
-        
-        ResourceByType[res.Config.GetType()] = 0;
-        InventoryChangedEvent?.Invoke(res, ResourceByType[res.Config.GetType()]);
+
+        RemoveResource(res, amount);
 
         return tempList;
     }
 
     public bool CheckResourceAvailability(BaseResource res) 
     {
-        return ResourceByType[res.Config.GetType()] > 0;
+        return ResourceByIndex[GetResourceIndex(res)] > 0;
     }
 
+    private int GetResourceIndex(BaseResource res) 
+    {
+        foreach (var resource in ResourceList.Resources)
+        {
+            if (resource == res.Config) 
+            {
+                return ResourceList.Resources.IndexOf(resource);
+            }
+        }
+
+        return 0;
+    }
 
     public void InitCanvas() 
     {

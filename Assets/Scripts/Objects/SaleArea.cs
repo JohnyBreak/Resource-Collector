@@ -22,26 +22,26 @@ public class SaleArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Player>(out var player))
+        if (other.TryGetComponent<Inventory>(out var playerInventory))
         {
-            if(_spot.Inventory.CheckResourceAvailability(_spot.Config.ResourceIn)) 
-                StartFly(player.transform.position);
+            if(playerInventory.CheckResourceAvailability(_spot.Config.ResourceIn)) 
+                StartFly(playerInventory, playerInventory.transform.position);
         }
     }
 
-    private void StartFly(Vector3 startPos)
+    private void StartFly(Inventory inventory, Vector3 startPos)
     {
         if (_flyRoutine != null) StopFly();
-        _flyRoutine = StartCoroutine(FlyRoutine(startPos));
+        _flyRoutine = StartCoroutine(FlyRoutine(inventory, startPos));
     }
 
-    private IEnumerator FlyRoutine(Vector3 startPos)
+    private IEnumerator FlyRoutine(Inventory inventory, Vector3 startPos)
     {
         yield return null;
 
         _landArea.transform.position = startPos;
 
-        foreach (var item in _spot.Inventory.GetAllResourcesByType(_spot.Config.ResourceIn))
+        foreach (var item in inventory.GetAllResourcesByType(_spot.Config.ResourceIn))
         {
             _resources.Add(item);
         }

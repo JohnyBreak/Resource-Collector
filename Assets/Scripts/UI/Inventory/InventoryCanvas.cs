@@ -26,9 +26,13 @@ public class InventoryCanvas : MonoBehaviour
 
     private void Init()
     {
-        foreach (var type in _inventory.ResourceByType)
+        foreach (var type in _inventory.ResourceByIndex)
         {
-            var res = _inventory.ResourceList.Resources.Find(t => t.GetType() == type.Key);
+            if (type.Value < 1) continue;
+            
+               var res = _inventory.ResourceList.Resources
+                .Find(t => _inventory.ResourceList.Resources.IndexOf(t) == type.Key);
+
             _resourceItems[res].Init(res.Icon, type.Value);
             _resourceItems[res].gameObject.SetActive(true);
         }
@@ -36,15 +40,12 @@ public class InventoryCanvas : MonoBehaviour
 
     private void OnInventoryChanged(BaseResource res, int amount)
     {
-        //if (_resourceItems.ContainsKey(res.Type) == false)
-        //{
-        //    InventoryItem item = Instantiate(_itemPrefab, _itemsHolder);
-        //    item.Init(res.Type.Icon, 0);
-
-        //    _resourceItems.Add(res.Type, item);
-        //}
-
-        if(_resourceItems[res.Config].gameObject.activeInHierarchy == false) 
+        if (amount < 1)
+        {
+            _resourceItems[res.Config].gameObject.SetActive(false);
+            return;
+        }
+        if (_resourceItems[res.Config].gameObject.activeInHierarchy == false) 
         {
             _resourceItems[res.Config].Init(res.Config.Icon, amount);
             _resourceItems[res.Config].transform.SetAsLastSibling();
