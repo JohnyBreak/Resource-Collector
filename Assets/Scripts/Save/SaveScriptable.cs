@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 
 
-[CreateAssetMenu(fileName = "SaveScriptable", menuName = "Save/SaveScriptable")]
+[CreateAssetMenu(fileName = "SaveScriptable", menuName = "ScriptableObjects/Save/SaveScriptable")]
 public class SaveScriptable : ScriptableObject
 {
     [HideInInspector] public SaveData SaveData;

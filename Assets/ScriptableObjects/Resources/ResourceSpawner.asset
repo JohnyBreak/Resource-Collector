@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1438f777759ce5c4ba97bf14cdc233fc, type: 3}
   m_Name: ResourceSpawner
   m_EditorClassIdentifier: 
-  _pool: {fileID: 11400000, guid: eb00df41e171caf41b82e0b271eb3014, type: 2}
+  Pool: {fileID: 11400000, guid: eb00df41e171caf41b82e0b271eb3014, type: 2}

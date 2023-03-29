@@ -47,6 +47,7 @@ public class InventoryCanvas : MonoBehaviour
         if(_resourceItems[res.Config].gameObject.activeInHierarchy == false) 
         {
             _resourceItems[res.Config].Init(res.Config.Icon, amount);
+            _resourceItems[res.Config].transform.SetAsLastSibling();
             _resourceItems[res.Config].gameObject.SetActive(true);
             return;
         }

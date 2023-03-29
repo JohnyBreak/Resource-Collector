@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ResourceObjectConfig", menuName = "Resources/ResourceObjectConfig")]
+[CreateAssetMenu(fileName = "ResourceObjectConfig", menuName = "ScriptableObjects/Resources/ResourceObjectConfig")]
 public class ResourceObjectConfig : ScriptableObject
 {
     public BaseResource ResourcePrefab;

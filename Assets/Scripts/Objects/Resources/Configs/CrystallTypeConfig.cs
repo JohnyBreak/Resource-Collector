@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CrystallTypeConfig", menuName = "Resources/CrystallTypeConfig")]
+[CreateAssetMenu(fileName = "CrystallTypeConfig", menuName = "ScriptableObjects/Resources/CrystallTypeConfig")]
 public class CrystallTypeConfig : ResourceTypeConfig
 {
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WoodTypeConfig", menuName = "Resources/WoodTypeConfig")]
+[CreateAssetMenu(fileName = "WoodTypeConfig", menuName = "ScriptableObjects/Resources/WoodTypeConfig")]
 public class WoodTypeConfig : ResourceTypeConfig
 {
 }

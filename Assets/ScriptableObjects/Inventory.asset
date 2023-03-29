@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64b7d0b54e8ae345bf950cae3c2d36d, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
+  _spawner: {fileID: 11400000, guid: fea5b3de460dbe8408fded22a9abeae0, type: 2}
   ResourceList: {fileID: 11400000, guid: 8678ab464158bab40a2f9c68b7ff2d76, type: 2}

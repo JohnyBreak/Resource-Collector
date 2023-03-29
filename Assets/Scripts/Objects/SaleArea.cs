@@ -1,65 +1,92 @@
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
 public class SaleArea : MonoBehaviour
 {
-    [SerializeField] private float _jumpPower = 2;
-    [SerializeField] private float _jumpDuration = 0.5f;
-    [SerializeField] private float _pauseBetweenBlockSale = 0.7f;
+    [SerializeField] private SaleAreaConfig _config;
 
     [SerializeField] private Transform _finishPoint;
+    [SerializeField] private LandArea _landArea;
 
-    //private SaleManager _saleManager;
-    private Coroutine _sellRoutine;
-    private Stack _currentStack;
-    private ObjectPool _wheatPool;
+    private BaseSpot _spot;
+    private Coroutine _flyRoutine;
+    private List<BaseResource> _resources;
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.TryGetComponent<Stack>(out var stack)) 
-    //    {
-    //        _currentStack = stack;
-    //        if(_currentStack.IsNotEmpty) StartSell();
-    //    }
-    //}
-
-    //private void StartSell() 
-    //{
-    //    if (_sellRoutine != null) StopSell();
-    //    _sellRoutine = StartCoroutine(SellRoutine());
-    //}
-
-    //private IEnumerator SellRoutine() 
-    //{
-    //    while (_currentStack.IsNotEmpty)
-    //    {
-    //        var block = _currentStack.GetBlockForSale();
-
-    //        block.transform.DOJump(_finishPoint.position, _jumpPower, 1, _jumpDuration).SetEase(Ease.OutQuad);
-    //        block.transform.DOScale(0f, 0.3f).SetDelay(_jumpDuration)
-    //            .SetEase(Ease.OutBack).OnComplete(() => SendSalePosition(block));//SendSalePosition());
-    //        ;
-    //        yield return new WaitForSeconds(_pauseBetweenBlockSale);
-    //    }
-    //    StopSell();
-    //}
-
-    private void StopSell()
+    private void Awake()
     {
-        StopCoroutine(_sellRoutine);
-        _sellRoutine = null;
-        _currentStack = null;
+        _resources = new List<BaseResource>();
+        _spot = GetComponentInParent<BaseSpot>();
     }
 
-    //private void SendSalePosition(WheatBlock block)    
-    //{
-    //    _saleManager.OnBlockSale(_finishPoint.position, block.Price);
-    //    _wheatPool.DisableObject(block.gameObject);
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<Player>(out var player))
+        {
+            if(_spot.Inventory.CheckResourceAvailability(_spot.Config.ResourceIn)) 
+                StartFly(player.transform.position);
+        }
+    }
+
+    private void StartFly(Vector3 startPos)
+    {
+        if (_flyRoutine != null) StopFly();
+        _flyRoutine = StartCoroutine(FlyRoutine(startPos));
+    }
+
+    private IEnumerator FlyRoutine(Vector3 startPos)
+    {
+        yield return null;
+
+        _landArea.transform.position = startPos;
+
+        foreach (var item in _spot.Inventory.GetAllResourcesByType(_spot.Config.ResourceIn))
+        {
+            _resources.Add(item);
+        }
+
+
+        float waitTime = _resources[0].Config.JumpDuration;
+        Debug.Log(_resources.Count);
+        foreach (var item in _resources)
+        {
+            item.transform.position = startPos;
+            item.Drop(_landArea.GetLandPosition(), false);
+        }
+
+        yield return new WaitForSeconds(waitTime);
+
+
+        while (_resources.Count > 0)
+        {
+            var res = _resources[0];
+            _resources.RemoveAt(0);
+
+            res.transform.DOJump(_finishPoint.position, _config.JumpPower, 1, _config.JumpDuration).SetEase(Ease.OutQuad);
+            res.transform.DOScale(0f, 0.3f).SetDelay(_config.JumpDuration)
+                .SetEase(Ease.OutBack).OnComplete(() => ProvideResourceToSpot(res));
+            
+            yield return new WaitForSeconds(_config.JumpDuration);
+        }
+    }
+
+    private void StopFly() 
+    {
+        Debug.LogError("StopCoroutine");
+        StopCoroutine(_flyRoutine);
+        _flyRoutine = null;
+    }
+
+    private void ProvideResourceToSpot(BaseResource res)
+    {
+        _spot.TakeResource(res);
+        res.transform.localScale = Vector3.one;
+        res.gameObject.SetActive(false);
+    }
 
     private void OnTriggerExit(Collider other)
     {
-        if(_sellRoutine != null) StopSell();
+        //if(_sellRoutine != null) StopSell();
     }
 }
