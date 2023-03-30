@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BrickTypeConfig
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 35eb793c826cd6a4b94323d204efc79b, type: 3}
+  Name: Brick
   JumpPower: 2
   JumpCount: 1
   JumpDuration: 0.5

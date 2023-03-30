@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WoodTypeConfig
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: b4999e57cacc666419bd056f4fc24adb, type: 3}
+  Name: Wood
   JumpPower: 2
   JumpCount: 1
   JumpDuration: 0.5

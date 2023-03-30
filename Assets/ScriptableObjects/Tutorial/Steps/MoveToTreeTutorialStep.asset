@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e3a0fe48881ad4d968c94e4b5df361, type: 3}
+  m_Name: MoveToTreeTutorialStep
+  m_EditorClassIdentifier: 
+  _player: {fileID: 11400000, guid: d92c8ccbb701b4d4db8929d25c139e6e, type: 2}
+  _destinationObjectConfig: {fileID: 11400000, guid: 83d62c19b78a1a44e9e005b0d8ce5ce6, type: 2}
+  _stopDistance: 1
+  _arrowStep: {fileID: 11400000, guid: d7027b41a4ddb8a498ff1642fa28891a, type: 2}
+  _canvasStep: {fileID: 11400000, guid: 056fd23dcac34b444b9b76527ae1c9f6, type: 2}

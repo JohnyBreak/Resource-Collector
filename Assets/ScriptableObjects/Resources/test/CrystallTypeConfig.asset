@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CrystallTypeConfig
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: c9ee64409d8692b4c816190d4c421c65, type: 3}
+  Name: Crystall
   JumpPower: 2
   JumpCount: 1
   JumpDuration: 0.5

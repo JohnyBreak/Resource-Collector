@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StoneTypeConfig
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 9783515de7119614f9f33ae70c66e2fd, type: 3}
+  Name: Stone
   JumpPower: 2
   JumpCount: 1
   JumpDuration: 0.5

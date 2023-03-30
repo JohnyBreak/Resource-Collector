@@ -24,40 +24,45 @@ public class SaleArea : MonoBehaviour
     {
         if (other.TryGetComponent<Inventory>(out var playerInventory))
         {
-            if(playerInventory.CheckResourceAvailability(_spot.Config.ResourceIn)) 
+            if (playerInventory.CheckResourceAvailability(_spot.Config.ResourceIn)) 
                 StartFly(playerInventory, playerInventory.transform.position);
         }
     }
 
     private void StartFly(Inventory inventory, Vector3 startPos)
     {
-        if (_flyRoutine != null) StopFly();
-        _flyRoutine = StartCoroutine(FlyRoutine(inventory, startPos));
+        StartCoroutine(AddRoutine(inventory, startPos));
     }
 
-    private IEnumerator FlyRoutine(Inventory inventory, Vector3 startPos)
+    private IEnumerator AddRoutine(Inventory inventory, Vector3 startPos) 
     {
         yield return null;
 
         _landArea.transform.position = startPos;
 
-        foreach (var item in inventory.GetAllResourcesByType(_spot.Config.ResourceIn))
-        {
-            _resources.Add(item);
-        }
+        var tempList = inventory.GetAllResourcesByType(_spot.Config.ResourceIn);
 
-
-        float waitTime = _resources[0].Config.JumpDuration;
-        Debug.Log(_resources.Count);
-        foreach (var item in _resources)
+        foreach (var item in tempList)
         {
             item.transform.position = startPos;
             item.Drop(_landArea.GetLandPosition(), false);
         }
 
+        foreach (var item in tempList)
+        {
+            _resources.Add(item);
+        }
+
+        float waitTime = _resources[0].Config.JumpDuration;
+
         yield return new WaitForSeconds(waitTime);
 
+        if (_flyRoutine == null) _flyRoutine = StartCoroutine(FlyRoutine());
+    }
 
+
+    private IEnumerator FlyRoutine()
+    {
         while (_resources.Count > 0)
         {
             var res = _resources[0];
@@ -69,6 +74,7 @@ public class SaleArea : MonoBehaviour
             
             yield return new WaitForSeconds(_config.JumpDuration);
         }
+        _flyRoutine = null;
     }
 
     private void StopFly() 
@@ -80,7 +86,7 @@ public class SaleArea : MonoBehaviour
 
     private void ProvideResourceToSpot(BaseResource res)
     {
-        _spot.TakeResource(res);
+        _spot.IncreaseResource();
         res.transform.localScale = Vector3.one;
         res.gameObject.SetActive(false);
     }

@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 008cb3e1bc4dbd44483cdd34acf775bb, type: 3}
-  m_Name: WoodPlankTypeConfig
+  m_Script: {fileID: 11500000, guid: 64e2f19a7782e954ab323ee9e5d287d6, type: 3}
+  m_Name: TutorialCanvasConfig
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: a258b4c5aebd4bb439306a109628115f, type: 3}
-  Name: Wood plank
-  JumpPower: 2
-  JumpCount: 1
-  JumpDuration: 0.5
+  Canvas: {fileID: 0}

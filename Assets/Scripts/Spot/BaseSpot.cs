@@ -14,12 +14,18 @@ public class BaseSpot : MonoBehaviour
     [Header("Variables")]
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private LandArea _landArea;
+    [SerializeField] private SpotLabel _label;
 
     private int _inResCount = 0;
     private int _recyclingCount = 0;
     private bool _isRecycling = false;
 
-    internal void TakeResource(BaseResource res)
+    private void Awake()
+    {
+        _label.SetText(_inResCount + (_recyclingCount * Config.InCount), Config.InCount);
+    }
+
+    public void IncreaseResource()
     {
         _inResCount++;
         if (_inResCount == Config.InCount) 
@@ -28,6 +34,7 @@ public class BaseSpot : MonoBehaviour
                _recyclingCount++;
             if (!_isRecycling) StartRecycling();
         }
+        _label.SetText(_inResCount + (_recyclingCount * Config.InCount), Config.InCount);
     }
 
     //private void Update()
@@ -49,6 +56,8 @@ public class BaseSpot : MonoBehaviour
         {
             _recyclingCount--;
 
+            _label.SetText(_inResCount + (_recyclingCount * Config.InCount), Config.InCount);
+
             yield return new WaitForSeconds(Config.RecyclingTime);
 
             //drop new res
@@ -63,5 +72,4 @@ public class BaseSpot : MonoBehaviour
     {
         res.Drop(_landArea.GetLandPosition());
     }
-
 }

@@ -35,7 +35,6 @@ public class InventoryConfig : ScriptableObject
     private void RemoveResource(BaseResource res, int amount = 1)
     {
         ResourceByIndex[GetResourceIndex(res)] -= amount;
-        Debug.Log(ResourceByIndex[GetResourceIndex(res)]);
         InventoryChangedEvent?.Invoke(res, ResourceByIndex[GetResourceIndex(res)]);
     }
 
