@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a4822d8cbf1db4eb376ab72215247f, type: 3}
+  m_Name: DiamondSpotConfig
+  m_EditorClassIdentifier: 
+  ResourceIn: {fileID: 3358217343841588868, guid: 3cd167de3cb634749a0a3e5e241bb079, type: 3}
+  InCount: 3
+  ResourceOut: {fileID: 3358217343841588868, guid: aad22024abe5df54cbe862ad40d6a50b, type: 3}
+  OutCount: 1
+  RecyclingTime: 2

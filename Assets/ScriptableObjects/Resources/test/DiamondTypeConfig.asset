@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee058092aef8bc409888323a9e1b404, type: 3}
-  m_Name: CrystallTypeConfig
+  m_Script: {fileID: 11500000, guid: 008cb3e1bc4dbd44483cdd34acf775bb, type: 3}
+  m_Name: DiamondTypeConfig
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: c9ee64409d8692b4c816190d4c421c65, type: 3}
-  Pool: {fileID: 11400000, guid: eb00df41e171caf41b82e0b271eb3014, type: 2}
+  Icon: {fileID: 21300000, guid: e35eb7f1accf7fb4086423e787a7b49c, type: 3}
+  Name: Diamond
   JumpPower: 2
   JumpCount: 1
   JumpDuration: 0.5

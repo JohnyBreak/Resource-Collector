@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a4822d8cbf1db4eb376ab72215247f, type: 3}
+  m_Name: BrickSpotConfig
+  m_EditorClassIdentifier: 
+  ResourceIn: {fileID: 1095690716102957968, guid: 4aa3537b7fce82044986aac7271a83d0, type: 3}
+  InCount: 3
+  ResourceOut: {fileID: 1095690716102957968, guid: 4a1e2b7637af0824fb47ccb0c29cfa1d, type: 3}
+  OutCount: 1
+  RecyclingTime: 3
