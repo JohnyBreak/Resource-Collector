@@ -45,13 +45,29 @@ public class Inventory : MonoBehaviour
         return _inventory.CheckResourceAvailability(res);
     }
 
-    public List<BaseResource> GetAllResourcesByType(BaseResource res)
+    public List<BaseResource> GetAllResourcesByType(BaseResource res, int count = 0)
+    {
+        if (count == 0) return GetAllResourcesByType(res);
+        else return GetResourceByCount(res, count);
+    }
+
+    private List<BaseResource> GetAllResourcesByType(BaseResource res)
     {
         List<BaseResource> tempList = _inventory.GetAllResourcesByType(res);
         _save.SaveData.ResourcesByType = _inventory.ResourceByIndex;
         _save.Save();
         return tempList;
     }
+
+    private List<BaseResource> GetResourceByCount(BaseResource res, int count)
+    {
+        List<BaseResource> tempList = _inventory.GetResourceByCount(res, count);
+
+        _save.SaveData.ResourcesByType = _inventory.ResourceByIndex;
+        _save.Save();
+        return tempList;
+    }
+
 
     //private void ClearConsole()
     //{

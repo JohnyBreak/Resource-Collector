@@ -16,6 +16,8 @@ public class SaleArea : MonoBehaviour
 
     private Inventory _playerInventory;
     private PlayerTouchMovement _playerMovement;
+    private int _neededCount = 0;
+
 
     private void Awake()
     {
@@ -31,6 +33,12 @@ public class SaleArea : MonoBehaviour
             _playerMovement.PlayerStopEvent += OnPlayerStop;
         }
     }
+
+    public void SetNeededCount(int count) 
+    {
+        _neededCount = count;
+    }
+
 
     private void OnPlayerStop()
     {
@@ -49,7 +57,7 @@ public class SaleArea : MonoBehaviour
 
         _landArea.transform.position = startPos;
 
-        var tempList = inventory.GetAllResourcesByType(_spot.Config.ResourceIn);
+        var tempList = inventory.GetAllResourcesByType(_spot.Config.ResourceIn, _neededCount);
 
         foreach (var item in tempList)
         {

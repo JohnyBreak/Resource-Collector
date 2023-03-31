@@ -55,6 +55,29 @@ public class InventoryConfig : ScriptableObject
         return tempList;
     }
 
+    
+    public List<BaseResource> GetResourceByCount(BaseResource res, int count)
+    {
+        List<BaseResource> tempList = new List<BaseResource>();
+        int amount = ResourceByIndex[GetResourceIndex(res)];
+
+        Debug.Log($"{amount} / {count}");
+
+        if (amount > count) amount = count;
+
+        Debug.Log($"{amount} / {count}");
+        for (int i = 0; i < amount; i++)
+        {
+            var item = _spawner.Pool.GetPooledObject(res, true);
+
+            tempList.Add(item);
+        }
+
+        RemoveResource(res, amount);
+
+        return tempList;
+    }
+
     public bool CheckResourceAvailability(BaseResource res) 
     {
         return ResourceByIndex[GetResourceIndex(res)] > 0;

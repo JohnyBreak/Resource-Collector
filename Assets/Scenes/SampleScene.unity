@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028367, g: 0.22571394, b: 0.30692267, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -398,7 +398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &106534374
 Transform:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ Transform:
   m_GameObject: {fileID: 106534373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -2.733, z: 1.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 366817808}
@@ -1508,24 +1508,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92ffb11ce2564c42bc129437aa65131, type: 3}
---- !u!1 &614521485 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6713001322140111041, guid: c92ffb11ce2564c42bc129437aa65131, type: 3}
-  m_PrefabInstance: {fileID: 614521484}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &614521486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614521485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e000123a8c0d04eab3ab1e71e97d9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 83d62c19b78a1a44e9e005b0d8ce5ce6, type: 2}
 --- !u!1 &616331601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,14 +1793,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.39942503, y: 0.29611164, z: -0.1380791, w: 0.85656977}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 38.14, z: 0}
 --- !u!1 &723977820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3817,24 +3799,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92ffb11ce2564c42bc129437aa65131, type: 3}
---- !u!1 &1814132794 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6713001322140111041, guid: c92ffb11ce2564c42bc129437aa65131, type: 3}
-  m_PrefabInstance: {fileID: 1814132793}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1814132795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814132794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e000123a8c0d04eab3ab1e71e97d9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 83d62c19b78a1a44e9e005b0d8ce5ce6, type: 2}
 --- !u!1 &1885823940
 GameObject:
   m_ObjectHideFlags: 0
@@ -4062,24 +4026,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92ffb11ce2564c42bc129437aa65131, type: 3}
---- !u!1 &1962482952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6713001322140111041, guid: c92ffb11ce2564c42bc129437aa65131, type: 3}
-  m_PrefabInstance: {fileID: 1962482951}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1962482953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962482952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e000123a8c0d04eab3ab1e71e97d9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 83d62c19b78a1a44e9e005b0d8ce5ce6, type: 2}
 --- !u!1 &2013981653
 GameObject:
   m_ObjectHideFlags: 0
