@@ -22,7 +22,10 @@ public class BaseSpot : MonoBehaviour
 
     private void Awake()
     {
-        _label.SetText(_inResCount + (_recyclingCount * Config.InCount), Config.InCount);
+        _label.Init(Config.ResourceIn.Config.Icon,
+            Config.ResourceOut.Config.Icon,
+            Config.InCount,
+            Config.OutCount);
     }
 
     public void IncreaseResource()
@@ -34,7 +37,7 @@ public class BaseSpot : MonoBehaviour
                _recyclingCount++;
             if (!_isRecycling) StartRecycling();
         }
-        _label.SetText(_inResCount + (_recyclingCount * Config.InCount), Config.InCount);
+        _label.SetText(_recyclingCount);
     }
 
     //private void Update()
@@ -54,14 +57,10 @@ public class BaseSpot : MonoBehaviour
     {
         while (_recyclingCount > 0)
         {
-            _recyclingCount--;
-
-            _label.SetText(_inResCount + (_recyclingCount * Config.InCount), Config.InCount);
-
             yield return new WaitForSeconds(Config.RecyclingTime);
-
+            _recyclingCount--;
+            _label.SetText(_recyclingCount);
             //drop new res
-            //_landArea.GetLandPosition();
             Spawner.SpawnResource(Config.ResourceOut, _spawnPoint.position, 1, CallbackResourceDrop);
         }
         //stop
