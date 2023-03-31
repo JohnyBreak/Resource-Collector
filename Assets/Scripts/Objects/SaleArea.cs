@@ -14,6 +14,9 @@ public class SaleArea : MonoBehaviour
     private Coroutine _flyRoutine;
     private List<BaseResource> _resources;
 
+    private Inventory _playerInventory;
+    private PlayerTouchMovement _playerMovement;
+
     private void Awake()
     {
         _resources = new List<BaseResource>();
@@ -22,11 +25,17 @@ public class SaleArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Inventory>(out var playerInventory))
+        if (other.TryGetComponent(out _playerInventory))
         {
-            if (playerInventory.CheckResourceAvailability(_spot.Config.ResourceIn)) 
-                StartFly(playerInventory, playerInventory.transform.position);
+            _playerMovement = _playerInventory.GetComponent<PlayerTouchMovement>();
+            _playerMovement.PlayerStopEvent += OnPlayerStop;
         }
+    }
+
+    private void OnPlayerStop()
+    {
+        if (_playerInventory.CheckResourceAvailability(_spot.Config.ResourceIn))
+            StartFly(_playerInventory, _playerInventory.transform.position);
     }
 
     private void StartFly(Inventory inventory, Vector3 startPos)
@@ -77,13 +86,6 @@ public class SaleArea : MonoBehaviour
         _flyRoutine = null;
     }
 
-    private void StopFly() 
-    {
-        Debug.LogError("StopCoroutine");
-        StopCoroutine(_flyRoutine);
-        _flyRoutine = null;
-    }
-
     private void ProvideResourceToSpot(BaseResource res)
     {
         _spot.IncreaseResource();
@@ -93,6 +95,8 @@ public class SaleArea : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //if(_sellRoutine != null) StopSell();
+        _playerInventory = null;
+        _playerMovement.PlayerStopEvent -= OnPlayerStop;
+        _playerMovement = null;
     }
 }

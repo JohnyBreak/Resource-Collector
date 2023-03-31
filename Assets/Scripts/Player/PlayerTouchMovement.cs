@@ -1,10 +1,13 @@
 using UnityEngine.AI;
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerTouchMovement : MonoBehaviour
 {
+    public Action PlayerStopEvent;
+
     [SerializeField] private Joystick _joystick;
 
     private NavMeshAgent _agent;
@@ -16,18 +19,13 @@ public class PlayerTouchMovement : MonoBehaviour
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-
+        _joystick.PointerUpEvent += OnPlayerStop;
         _anim = GetComponentInChildren<PlayerAnimator>();
     }
 
-    private void OnStopPlayer() 
+    private void OnPlayerStop(PointerEventData data) 
     {
-        _canMove = false;
-    }
-
-    private void OnResumePlayer()
-    {
-        _canMove = true;
+        PlayerStopEvent?.Invoke();
     }
 
     private void Update()
