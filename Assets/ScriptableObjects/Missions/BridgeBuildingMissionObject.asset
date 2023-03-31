@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38b5f31bdfc71f84aadebea0bcbceee9, type: 3}
-  m_Name: SaleSpotConfig
+  m_Script: {fileID: 11500000, guid: b4c31a3c316584746abee406df578f77, type: 3}
+  m_Name: BridgeBuildingMissionObject
   m_EditorClassIdentifier: 
-  ResourceIn: {fileID: 8981379694275428211, guid: 2bc9961a047b72f4d9b47e62b5f15cb3, type: 3}
-  InCount: 5
-  AfterSale: {fileID: 11400000, guid: 0361e2a936b4a8a4aa2b01cb57c16b3b, type: 2}
+  BuildingMission: {fileID: 0}

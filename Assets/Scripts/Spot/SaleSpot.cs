@@ -21,7 +21,7 @@ public class SaleSpot : BaseSpot
         _label.SetText(_inResCount);
         if (_inResCount == _config.InCount) 
         {
-            Debug.Log("Build the bridge");
+            _config.AfterSale.Object.BuildingMission.Build();
         }
     }
 }
